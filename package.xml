@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+    <name>ParcelPro_Carrier</name>
+    <version>1.0.1</version>
+    <stability>stable</stability>
+    <license uri="https://www.mozilla.org/MPL/2.0/">MPL 2.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Parcel Pro for Magento is a web-based Insured Shipping solution that integrates with your Magento online store, adding Parcel Pro as one of your shipping options. It allows you to set the price of shipping and insurance coverage quickly and easily.</summary>
+    <description>Parcel Pro for Magento is a web-based Insured Shipping solution that integrates with your Magento online store. It adds Parcel Pro as one of your shipping options, allowing you to set the price of shipping and insurance coverage easily. You must have a Magento store. By having Parcel Pro for Magento installed into your Magento store, you&#x2019;ll have a powerful new option for your customers to choose from when selecting Insured Shipping. With solid integration with your favorite carriers, Parcel Pro for Magento lets your customers check out in a breeze, with the costs of shipping and insurance embedded into your price.</description>
+    <notes>Version 1.0.1&#xD;
+Actually use default location for ShipFrom&#xD;
+Some error logging added&#xD;
+&#xD;
+Version 1.0.0&#xD;
+New release.</notes>
+    <authors><author><name>Parcel Pro, Inc.</name><user>ParcelProInc</user><email>techsupport@parcelpro.com</email></author></authors>
+    <date>2014-09-23</date>
+    <time>21:19:30</time>
+    <contents><target name="magecommunity"><dir name="ParcelPro"><dir name="Carrier"><dir name="Block"><dir name="Adminhtml"><dir name="Button"><dir name="Refresh"><file name="Cms.php" hash="4e17c2e2488321dec06785af3b3c3706"/></dir></dir></dir></dir><dir name="Helper"><file name="Parcelpro.php" hash="274e40cd23bb5ef6fcaaa2b01004c2dd"/></dir><dir name="Model"><file name="Carrier.php" hash="8d76613b4d87785722534a63ba22e1a3"/><file name="Config.php" hash="1a524a99e831bcbad22ffd50316aec44"/><dir name="Mysql4"><dir name="Config"><file name="Collection.php" hash="60720e05a974b362891d4dba01694132"/></dir><file name="Config.php" hash="ac407fcd7973e28342bc99a24fad7b4a"/></dir><dir name="Resource"><dir name="Mysql4"><file name="Setup.php" hash="4c6b2c661d616ccce831185d30cc340e"/></dir></dir><dir name="Source"><file name="Carriers.php" hash="fbae840c7a2bb07d36f61aab7cf4d960"/><file name="Dropoff.php" hash="ab1c1c54e22ed3f1c628cd2f34b50ea8"/><file name="Fedexmethod.php" hash="1966f6b0e4cb1f5a8cbb8be5a2b38981"/><file name="Freemethod.php" hash="2f590b14abae6718abdd8ab1ebbca2b8"/><file name="Packaging.php" hash="85e5e9416c4ba68bedd12558edafe384"/><file name="Unitofmeasure.php" hash="4048107787504d7aef1b662de777e93d"/><file name="Upsmethod.php" hash="4eed70c1e0f051622251377dd2ffe050"/></dir></dir><dir name="controllers"><dir name="Adminhtml"><file name="RefreshController.php" hash="01dc45dd06e8af8968cce7fbaa554cb9"/></dir><file name="IndexController.php" hash="dd116c50612320505894e151b43a8fcc"/></dir><dir name="etc"><file name="config.xml" hash="81cec73e236e689be83576e56cb8ae98"/><file name="system.xml" hash="25e4b2b1e7c61b4bf55d5015d5cab0df"/></dir><dir name="sql"><dir name="carrier_setup"><file name="mysql4-install-1.0.0.php" hash="42faff48ed0752ba42739316ac02e890"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="ParcelPro_Carrier.xml" hash=""/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
+</package>
