@@ -1,12 +1,12 @@
 {
     "name": "OpenMageModuleFostering/ParcelPro_Carrier",
     "type": "magento-module",
-    "license": "MPL-2.0",
+    "license": "Available-for-use-for-all-Parcel-Pro-members-only.",
     "homepage": "",
     "description": "Parcel Pro for Magento is a web-based Insured Shipping solution that integrates with your Magento online store, adding Parcel Pro as one of your shipping options. It allows you to set the price of shipping and insurance coverage quickly and easily.",
     "authors": [
     {
-        "name": "Parcel Pro, Inc.",
+        "name": "Parcel Pro, Inc. ",
         "email": "techsupport@parcelpro.com"
     }
 ],

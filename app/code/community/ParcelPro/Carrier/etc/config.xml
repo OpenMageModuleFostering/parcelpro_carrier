@@ -62,6 +62,17 @@
                 </connection>
             </carrier_read>
         </resources>
+        <events>
+            <admin_system_config_changed_section_carriers>
+                <observers>
+                    <ParcelPro_Carrier>
+                        <type>singleton</type>
+                        <class>ParcelPro_Carrier_Model_Observer</class>
+                        <method>handle_adminSystemConfigChangedSection</method>
+                    </ParcelPro_Carrier>
+                </observers>
+            </admin_system_config_changed_section_carriers>
+        </events>
         <!-- 
         <sales>
 		     <quote>
