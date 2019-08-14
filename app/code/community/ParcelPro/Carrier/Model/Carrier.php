@@ -466,7 +466,10 @@ class ParcelPro_Carrier_Model_Carrier extends Mage_Shipping_Model_Carrier_Abstra
 				$shipmentResult = $this->_sendRequestShipment($this->_shipment_path. '/' . $quoteID);
 	
 				if($shipmentResult){
-					$result->setShippingLabelContent(base64_decode($shipmentResult->LabelImage));
+					if(base64_decode($shipmentResult->LabelImage))
+						$result->setShippingLabelContent(base64_decode($shipmentResult->LabelImage));
+					else
+						$result->setShippingLabelContent(call_user_func_array("pack",array_merge(array("C*"),$shipmentResult->LabelImage)));
 					//$result->setTrackingNumber($shipmentResult->TrackingNumber);
 					$result->setTrackingNumber($shipmentResult->InternalTrackingNumber);
 		
@@ -1171,16 +1174,28 @@ class ParcelPro_Carrier_Model_Carrier extends Mage_Shipping_Model_Carrier_Abstra
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 			curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-				'Content-Type: application/xml',
+				'Content-Type: application/json',
 				'Content-Length: 0'
 				)
 			);
 			
+			curl_setopt($ch, CURLOPT_HEADER, true);			
+
 			$data = curl_exec ($ch);
+			list($header,$data) = explode("\r\n\r\n",$data,2);
+			$header = explode("\r\n",$header);
+			while(explode(" ",$header[0])[1]=='100'){
+				list($header,$data) = explode("\r\n\r\n",$data,2);		
+				$header = explode("\r\n",$header);
+			}
+			$http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 			curl_close ($ch);
+			if($http_status == '400'){
+				Mage::log("Shipment failed:".explode(" ",$header[0],3)[2],null,'ppimagento.log');
+			}
 			if($data){
-				$result = json_encode(simplexml_load_string($data));
-				return json_decode($result, false);
+				//$result = json_encode(simplexml_load_string($data));
+				return json_decode($data, false);
 			}else{
 				return null;
 			}
