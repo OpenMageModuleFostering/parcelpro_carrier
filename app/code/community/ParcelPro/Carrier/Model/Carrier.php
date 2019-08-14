@@ -1217,6 +1217,10 @@ class ParcelPro_Carrier_Model_Carrier extends Mage_Shipping_Model_Carrier_Abstra
 			$data = curl_exec ($ch);
 			list($header,$data) = explode("\r\n\r\n",$data,2);
 			$header = explode("\r\n",$header);
+			while(explode(" ",$header[0])[1]=='100'){
+				list($header,$data) = explode("\r\n\r\n",$data,2);		
+				$header = explode("\r\n",$header);
+			}
 			$http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 			curl_close ($ch);
 			if($http_status == '400'){
@@ -1233,7 +1237,10 @@ class ParcelPro_Carrier_Model_Carrier extends Mage_Shipping_Model_Carrier_Abstra
 				}else{
 					$result = json_decode($data);
 				}
-				return $result;
+				if($result)
+					return $result;
+				else
+					Mage::log("Invalid JSON:".$data,null,'ppimagento.log');
 			}else{
 				return null;	
 			}

@@ -235,6 +235,10 @@ class ParcelPro_Carrier_Helper_Parcelpro extends Mage_Core_Helper_Abstract
 			$data = curl_exec ($ch);
 			list($header,$data) = explode("\r\n\r\n",$data,2);
 			$header = explode("\r\n",$header);
+			while(explode(" ",$header[0])[1]=='100'){
+				list($header,$data) = explode("\r\n\r\n",$data,2);		
+				$header = explode("\r\n",$header);
+			}
 			$http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 			curl_close ($ch);
 			if($http_status == '400'){
