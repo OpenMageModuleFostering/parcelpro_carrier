@@ -470,8 +470,8 @@ class ParcelPro_Carrier_Model_Carrier extends Mage_Shipping_Model_Carrier_Abstra
 						$result->setShippingLabelContent(base64_decode($shipmentResult->LabelImage));
 					else
 						$result->setShippingLabelContent(call_user_func_array("pack",array_merge(array("C*"),$shipmentResult->LabelImage)));
-					//$result->setTrackingNumber($shipmentResult->TrackingNumber);
-					$result->setTrackingNumber($shipmentResult->InternalTrackingNumber);
+						$result->setTrackingNumber($shipmentResult->TrackingNumber);
+						//$result->setTrackingNumber($shipmentResult->InternalTrackingNumber);
 		
 				}else{
 					$result->setErrors(Mage::helper('sales')->__('An error occurred while creating shipping label..'));
