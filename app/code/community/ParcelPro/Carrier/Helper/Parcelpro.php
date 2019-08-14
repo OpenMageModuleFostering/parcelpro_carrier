@@ -242,7 +242,7 @@ class ParcelPro_Carrier_Helper_Parcelpro extends Mage_Core_Helper_Abstract
 			$http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 			curl_close ($ch);
 			if($http_status == '400'){
-				Mage::log("Query failed:".explode(" ",$header[0])[2],null,'ppimagento.log');
+				Mage::log("Query failed:".explode(" ",$header[0],3)[2],null,'ppimagento.log');
 			}
 			if($data){
 				if($isPost){
